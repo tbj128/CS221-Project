@@ -26,9 +26,9 @@ author at tomjin [at] stanford.edu if you have any further questions.
    with varying regularization.
    - `/los_prediction_lstm.ipynb`: LOS regression problem using the time-step data. Features recurrent neural networks 
    (particularly long short-term memory).
-- `src`: 
-   - `baseline`: Code to extract the data used for the baseline and to run linear regression to obtain baseline results.
-   - `extractors`: 
-      - `eicu`: Code to extract the raw data from the eICU dataset (not used)
-      - `mimiciii`: Code to extract and perform data preparation on the the raw MIMIC-III data
-   - `oracle`: Code to extract the data used for the oracle and to run linear regression to obtain oracle results.
+- `/src`: 
+   - `/baseline`: Code to extract the data used for the baseline and to run linear regression to obtain baseline results.
+   - `/extractors`: 
+      - `/eicu`: Code to extract the raw data from the eICU dataset (not used)
+      - `/mimiciii`: Code to extract and perform data preparation on the the raw MIMIC-III data
+   - `/oracle`: Code to extract the data used for the oracle and to run linear regression to obtain oracle results.
