@@ -11,7 +11,7 @@ Note: extract_oracle_data.py must be run prior to running this file
 import csv
 
 from sklearn.linear_model import LogisticRegression, LinearRegression
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.model_selection import train_test_split
 import random
 from sklearn import metrics
@@ -36,7 +36,8 @@ with open(FILENAME, 'r') as csv_file:
         num_days_prescription = float(row[4])
         los = float(row[5])
         status = row[6]
-        X.append([age, gender, expired, num_days_prescription])
+        # X.append([age, gender, expired, num_days_prescription])
+        X.append([num_days_prescription])
         y.append(los)
         y_status.append(status)
         i += 1
@@ -48,11 +49,11 @@ clf = LinearRegression()
 clf.fit(X_train, y_train)
 
 y_preds = clf.predict(X_train)
-training_error = mean_squared_error(y_train, y_preds)
+training_error = mean_absolute_error(y_train, y_preds)
 print("Training (LOS): " + str(training_error))
 
 y_preds = clf.predict(X_test)
-test_error = mean_squared_error(y_test, y_preds)
+test_error = mean_absolute_error(y_test, y_preds)
 print("Testing (LOS): " + str(test_error))
 
 # y_preds = clf.predict([[10, 1, 10] for _ in range(len(y_test))])
